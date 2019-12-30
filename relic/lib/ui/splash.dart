@@ -5,18 +5,31 @@ import 'package:flutter/services.dart';
 import 'package:relic/ui/onboard.dart';
 import 'package:relic/util/global.dart';
 
-class Splash extends StatelessWidget {
+class Splash extends StatefulWidget {
   static String route = '/';
+
+  @override
+  _SplashState createState() => _SplashState();
+}
+
+class _SplashState extends State<Splash> {
+  @override
+  void initState() {
+    super.initState();
+    initialize();
+  }
+
+  Future<Timer> initialize() async {
+    return Timer(
+      Duration(milliseconds: 1500),
+      () => Navigator.of(context).pushReplacementNamed(OnBoard.route),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     // Enable fullscreen
     SystemChrome.setEnabledSystemUIOverlays([]);
-
-    Timer(
-      Duration(milliseconds: 1500),
-      () => Navigator.of(context).pushReplacementNamed(OnBoard.route),
-    );
 
     return Scaffold(
       body: Center(
