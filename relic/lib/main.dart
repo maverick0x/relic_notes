@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:relic/ui/home.dart';
+import 'package:relic/ui/login.dart';
+import 'package:relic/ui/onboard.dart';
+import 'package:relic/ui/register.dart';
+import 'package:relic/ui/splash.dart';
 
 void main() => runApp(MyApp());
 
@@ -6,23 +11,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: Splash.route,
+      routes: {
+        Splash.route: (context) => Splash(),
+        OnBoard.route: (context) => OnBoard(),
+        Login.route: (context) => Login(),
+        Register.route: (context) => Register(),
+        Home.route: (context) => Home(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'Relic Notes',
       theme: ThemeData(
         fontFamily: 'Raleway',
-        primarySwatch: Colors.purple,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text('Relic Notes'),
-        ),
-        body: Center(
-          child: Text(
-            'Relic Notes',
-            style: Theme.of(context).textTheme.headline,
-          ),
-        ),
+        primarySwatch: Colors.grey,
       ),
     );
   }
