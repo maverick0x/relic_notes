@@ -1,5 +1,0 @@
-{
-	"python.pythonPath": "api/bin/python3",
-	"python.linting.pylintEnabled": false,
-	"python.formatting.provider": "black"
-}
